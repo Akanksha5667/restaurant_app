@@ -1,0 +1,15 @@
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.deps.json
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.pdb
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Domain.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Domain.pdb
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.AssemblyInfo.cs
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.78FE7322.Up2Date
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\refint\UserAuth.Infrastructure.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.pdb
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\ref\UserAuth.Infrastructure.dll
