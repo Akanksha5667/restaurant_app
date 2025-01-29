@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 
 export default function Photos() {
   return (
-    <>
-    <p>photos</p>
+    <div className='photos-body flex-align'>
+    <h4>photos are not added yet.</h4>
     {/* <div className='profiles-div'>
     Click on users to view their profiles
     <Link to={`/user/${1}`}>user1</Link>
@@ -13,6 +13,6 @@ export default function Photos() {
     <Link to={`/user/${4}`}>user4</Link>
     <Link to={`/user/${5}`}>user5</Link>
     </div> */}
-    </>
+    </div>
   )
 }

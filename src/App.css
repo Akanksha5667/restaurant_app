@@ -40,6 +40,15 @@ html {
 .justify-content {
   justify-content: center;
 }
+.flex-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-body,
+.photos-body {
+  height: 500px;
+}
 .label {
   font-size: 14px;
   margin-top: 20px;
@@ -96,7 +105,7 @@ a {
   text-decoration: none;
 }
 .outer {
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -227,11 +236,7 @@ a {
 }
 
 .slide {
-  margin: 75px 20px 30px 20px;
-  display: flex;
-  justify-content: center;
-  /* height: 350px;
-  width: 100%; */
+  margin-top: 84px;
 }
 
 .rsis-image {
@@ -242,6 +247,12 @@ a {
 .slide div div {
   border-radius: 10px;
   box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+  overflow: visible;
+}
+.slide div div div {
+  width: -webkit-fill-available;
+  margin-right: 91px !important;
 }
 .rsis-container {
   width: 100%;
@@ -525,10 +536,10 @@ a {
 .slick-list {
   height: 100%;
 }
-.slick-slide{
+.slick-slide {
   margin-left: 49px;
 }
-.height-700{
+.height-700 {
   height: 700px;
 }
 .slick-track {
@@ -559,8 +570,11 @@ a {
   width: 150px;
   border-radius: 85px;
 }
+.dashboard-body {
+  margin: 0px 115px;
+}
 .dashboard-heading {
-  padding: 70px 0 10px 70px;
+  padding: 104px 0 40px 70px;
 }
 .restaurant-container {
   padding: 20px 120px 10px 120px;

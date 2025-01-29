@@ -14,7 +14,6 @@ const slideImages = [
     return (
         <div>
       <SimpleImageSlider
-        width={1250}
         height={500}
         images={slideImages}
         showBullets={true}

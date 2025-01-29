@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 function Error() {
     useEffect(()=>{
-        throw Error('Crashed!!!!');
+        // throw Error('Crashed!!!!');
     })
   return (
     <div>
