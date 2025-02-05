@@ -24,6 +24,7 @@ namespace UserAuth.Application.Interfaces
         Task<OrderDTO> AddOrder(OrderDTO orderDTO);
         Task<bool> DeleteCart(int id);
         Task<int> GetRestaurantsCount();
+        Task<List<OrderDTO>> GetOrders(int userId);
         //Task<ImageDTO> GetImageStoredProc(int id);
     }
 }

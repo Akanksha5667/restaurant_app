@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Runtime.Intrinsics.X86;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,7 +7,6 @@ using UserAuth.Domain.DTOs;
 using UserAuth.Infrastructure.DBModels;
 using UserAuth.Infrastructure.DBModels.Restaurant;
 using UserAuth.Infrastructure.IRepositories;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UserAuth.Infrastructure.Repositories
 {
@@ -170,7 +168,12 @@ namespace UserAuth.Infrastructure.Repositories
 
             List<Image> images = await _dbContext.Set<Image>().FromSql($"EXEC GetImages @Type = {imageType}").ToListAsync();
             return _mapper.Map<List<ImageDTO>>(images);
+        }
 
+        public async Task<List<OrderDTO>> GetOrders(int userId)
+        {
+            List<DbOrder> orders = await _dbContext.Orders.Where(order=>order.UserId==userId).ToListAsync();
+            return _mapper.Map<List<OrderDTO>>(orders);
         }
     }
 }

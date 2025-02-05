@@ -123,10 +123,15 @@ namespace UserAuth.Application.Services
             bool isDeleted = await _restaurantRepository.DeleteCart(id);
             return isDeleted;
         }
+
+        public async Task<List<OrderDTO>> GetOrders(int userId)
+        {
+           return await _restaurantRepository.GetOrders(userId);
+        }
         //public async Task<ImageDTO> GetImageStoredProc(int id)
         //{
         //    return await _restaurantRepository.GetImagesStoredProc(id);
-           
+
         //}
     }
 }

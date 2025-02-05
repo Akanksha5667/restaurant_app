@@ -1,6 +1,6 @@
 ﻿using UserAuth.Domain.DomainModels;
 using UserAuth.Domain.DTOs;
-using UserAuth.Infrastructure.Repositories;
+using UserAuth.Infrastructure.DBModels;
 
 namespace UserAuth.Infrastructure.IRepositories
 {
@@ -19,5 +19,6 @@ namespace UserAuth.Infrastructure.IRepositories
         Task<bool> DeleteCart(int id);
         Task<int> GetRestaurantsCount();
         Task<List<ImageDTO>> GetImagesStoredProc(string imageType);
+        Task<List<OrderDTO>> GetOrders(int userId);
     }
 }

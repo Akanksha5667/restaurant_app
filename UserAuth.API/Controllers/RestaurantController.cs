@@ -95,6 +95,13 @@ namespace UserAuth.API.Controllers
             int count = await _restaurantService.GetRestaurantsCount();
             return count;
         }
+
+        [HttpGet("GetOrders/{userId}")]
+        public async Task<List<OrderDTO>> GetOrders(int userId)
+        {
+            List<OrderDTO> orders = await _restaurantService.GetOrders(userId);
+            return orders;
+        }
         //[HttpGet("GetImageStoredProc/{id}")]
         //public async Task<ImageDTO> GetImageStoredProc(int id)
         //{
