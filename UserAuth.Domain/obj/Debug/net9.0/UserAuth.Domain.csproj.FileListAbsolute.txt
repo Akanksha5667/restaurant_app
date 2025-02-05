@@ -10,3 +10,4 @@ C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Deb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\refint\UserAuth.Domain.dll
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.pdb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\ref\UserAuth.Domain.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.sourcelink.json

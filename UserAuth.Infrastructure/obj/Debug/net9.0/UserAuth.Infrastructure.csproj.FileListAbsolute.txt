@@ -13,3 +13,4 @@ C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\refint\UserAuth.Infrastructure.dll
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.pdb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\ref\UserAuth.Infrastructure.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.sourcelink.json

@@ -1,0 +1,13 @@
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\bin\Release\net9.0\UserAuth.Domain.deps.json
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\bin\Release\net9.0\UserAuth.Domain.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\bin\Release\net9.0\UserAuth.Domain.pdb
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.csproj.AssemblyReference.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.AssemblyInfoInputs.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.AssemblyInfo.cs
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.sourcelink.json
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\refint\UserAuth.Domain.dll
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\UserAuth.Domain.pdb
+C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Release\net9.0\ref\UserAuth.Domain.dll
