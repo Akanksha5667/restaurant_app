@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState } from "react";
 
 const DataContext = createContext();
 
-
 export const DataProvider = ({ children }) => {
   const [isAuthenticated , setIsAuthenticated]= useState(localStorage.getItem("token")?.length>0);
   const [updatedCartCount, setCartItemsCount] = useState();

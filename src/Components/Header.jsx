@@ -24,6 +24,7 @@ export default function Header() {
     logout();
     setShowLogoutPopup(false);
   };
+  const [isUserClicked,setIsUserClicked]=useState(false);
 let {updatedCartCount,setCartItemsCount}=useData();
   const fetchCartItems = async () => {
     const data = await GetCartItems();
@@ -72,6 +73,13 @@ let {updatedCartCount,setCartItemsCount}=useData();
       setDropdownOpen(false);
     }
   };
+
+  const onUserProfileClick=()=>{
+    console.log("clicked user");
+    setIsUserClicked(true);
+    navigate("/my-account")
+  }
+
   return (
     <div className="header-container">
       <div className="navbar">
@@ -113,9 +121,11 @@ let {updatedCartCount,setCartItemsCount}=useData();
           >
             Logout
           </button>
+          <div>
+          <i onClick={onUserProfileClick} class="fa-solid fa-user"></i>
+          </div>
         </div>
       </div>
-      <div></div>
       {showLogoutPopup && (
         <div className="popup">
           <div className="popup-content">

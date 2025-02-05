@@ -189,3 +189,12 @@ export const  Order = async (orderStatus) => {
     });
     return response.data;
   };
+
+  export const GetOrders=async(userId)=>{
+    const response = await axios.get(`${API_URL}restaurant/GetOrders/${userId}`,{
+      headers:{
+        "content-type":"application/json",
+      }
+    })
+    return response.data;
+  };

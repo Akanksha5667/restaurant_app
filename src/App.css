@@ -40,6 +40,50 @@ html {
 .justify-content {
   justify-content: center;
 }
+.profile-dashboard-div{
+  width: 100%;
+  height: 600px;
+  font-family: cursive;
+}
+.side-navbar{
+  height: 658px;
+  background-color: #d5d5eb;
+  padding-top: 50px;
+  width: 342px;
+}
+.profile-dashboard-outer{
+
+}
+.content-div {
+  width: 618px;
+  justify-items: baseline;
+  margin-top: 31px;
+}
+.content-div .content{
+  padding-left: 124px;
+}
+.sidebar-item {
+  cursor: pointer;
+  padding-left: 13px;
+  height: 80px;
+  font-size: 25px;
+}
+.sidebar-name{
+  margin-left: 20px;
+  color: #7d7373;
+  height: 80px;
+  width: 100%;
+}
+.fa-user,.fa-box,.fa-cog,.fa-location-dot{
+  width: 42px;
+  height: 41px;
+  border-radius: 23px;
+  background-color: #817e95;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .flex-align {
   display: flex;
   justify-content: center;
@@ -77,6 +121,25 @@ input,
 select:focus {
   border-color: #007bff;
   outline: none;
+}
+.order-status{
+  height: 22px;
+  width: 88px;
+  background: green;
+  border-radius: 5px;
+  justify-items: center;
+}
+.mt-21{
+  margin-top: 26px;
+}
+.date{
+  margin-right: 13px;
+}
+.order-status p{
+  color: white;
+}
+.date-id-div{
+  width: 439px;
 }
 button {
   width: 100%;
@@ -693,7 +756,7 @@ a {
 }
 .logout-div {
   justify-content: space-around;
-  width: 200px;
+  width: 264px;
 }
 .fa-cart-shopping {
   font-size: 21px;
@@ -863,7 +926,10 @@ input[type="number"] {
 .cart-msg-div p {
   font-size: 18px;
 }
-
+.order{
+  padding-top: 30px;
+  border-bottom: 2px solid rgb(170, 165, 165);
+}
 .order-container {
   width: 100%;
   max-width: 600px;

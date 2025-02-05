@@ -20,6 +20,8 @@ import Cart from "./Components/Cart";
 import PaymentGateway from "./Components/payment/PaymentGateway";
 import OrderDetails from "./Components/OrderDetails";
 import Counter from "./Components/Redux Sample/Counter";
+import Orders from "./Components/UserProfile/Orders";
+import UserDashboard from "./Components/UserProfile/UserDashboard";
 
 function App() {
   return (
@@ -127,6 +129,9 @@ function App() {
                 </ProtectedRoute>
               }
             ></Route>
+             <Route path="/my-account" element={<ProtectedRoute><UserDashboard/></ProtectedRoute>}>
+             <Route index path="/my-account/orders" element={<ProtectedRoute><Orders/></ProtectedRoute>} />
+              </Route>
           </Routes>
         </DataProvider>
       </Router>
