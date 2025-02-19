@@ -1036,6 +1036,7 @@
       "UserAuth.Infrastructure/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.3.0",
           "Microsoft.EntityFrameworkCore": "9.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",

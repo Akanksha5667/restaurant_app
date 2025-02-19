@@ -14,3 +14,19 @@ C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.pdb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\ref\UserAuth.Infrastructure.dll
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.sourcelink.json
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.deps.json
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.dll
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Infrastructure.pdb
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Domain.dll
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\bin\Debug\net9.0\UserAuth.Domain.pdb
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.csproj.AssemblyReference.cache
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.AssemblyInfoInputs.cache
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.AssemblyInfo.cs
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.csproj.CoreCompileInputs.cache
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.sourcelink.json
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.78FE7322.Up2Date
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.dll
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\refint\UserAuth.Infrastructure.dll
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\UserAuth.Infrastructure.pdb
+D:\projects\restaurant-app\backend\UserAuth.Infrastructure\obj\Debug\net9.0\ref\UserAuth.Infrastructure.dll

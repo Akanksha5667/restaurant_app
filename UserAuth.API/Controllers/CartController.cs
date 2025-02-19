@@ -27,7 +27,7 @@ namespace UserAuth.API.Controllers
         }
 
         [HttpPost("updateQuantity")]
-        public async Task<int> UpdateQuantity([FromBody] UpdateQuantityDTO updateQuantityDTO)
+        public async Task<int> UpdateQuantity(UpdateQuantityDTO updateQuantityDTO)
         {
             return await _cartService.UpdateQuantity(updateQuantityDTO);
         }

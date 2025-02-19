@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3riibkvlfDY=",
+  "dgSpecHash": "grHeePl6Fow=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Akanksha\\Desktop\\react app\\backend\\UserAuth.API\\UserAuth.API\\UserAuth.API.csproj",
+  "projectFilePath": "D:\\projects\\restaurant-app\\backend\\UserAuth.API\\UserAuth.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Akanksha\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Akanksha\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

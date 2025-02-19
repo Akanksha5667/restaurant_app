@@ -19,6 +19,7 @@ namespace UserAuth.Application
             CreateMap<ImageDTO, Image>().ReverseMap();
             CreateMap<ImageDTO, Image>().ReverseMap();
             CreateMap<DbOrder, OrderDTO>().ReverseMap();
+            CreateMap<Item,DbItem>().ReverseMap();
 
         }
     }

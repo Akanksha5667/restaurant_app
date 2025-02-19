@@ -24,12 +24,13 @@ namespace UserAuth.Application.Services
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-                new Claim(ClaimTypes.Name,user.Name)
+                new Claim(ClaimTypes.Name,user.Name),
+                 new Claim(ClaimTypes.Role,user.Type)
             };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                 _config["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddHours(2),
+                expires: DateTime.Now.AddHours(10),
                 signingCredentials: credentials);
 
 

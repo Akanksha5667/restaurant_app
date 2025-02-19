@@ -31,7 +31,7 @@ namespace UserAuth.Infrastructure.Repositories
         {
             try
             {
-               User user=  _dbContext.Users.Where(u => u.Email == userDTO.Email).FirstOrDefault();
+               User user=  _dbContext.Users.Where(u => u.Email == userDTO.Email && u.Type==userDTO.Type).FirstOrDefault();
                 return _mapper.Map<UserDTO>(user);
             }
             catch(Exception e)

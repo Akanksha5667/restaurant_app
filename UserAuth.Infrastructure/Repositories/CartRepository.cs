@@ -47,10 +47,20 @@ namespace UserAuth.Infrastructure.Repositories
         }
         public async Task<int> UpdateQuantity(UpdateQuantityDTO updateQuantityDTO)
         {
-            var cartItem = _dbContext.CartItem.FirstOrDefault(cartItem => cartItem.Id == updateQuantityDTO.CartItemId);
-            cartItem.Quantity += updateQuantityDTO.Number == 1 ? 1 : -1;
-            await _dbContext.SaveChangesAsync();
-            return cartItem.Quantity;
+            if (updateQuantityDTO.IsRestaurantItem)
+            {
+                var restaurantItem = _dbContext.RestaurantItems.FirstOrDefault(item => item.Id == updateQuantityDTO.ItemId);
+                restaurantItem.Quantity += (short)(updateQuantityDTO.Number == 1 ? 1 : -1);
+                await _dbContext.SaveChangesAsync();
+                return restaurantItem.Quantity;
+            }
+            else
+            {
+                var cartItem = _dbContext.CartItem.FirstOrDefault(cartItem => cartItem.Id == updateQuantityDTO.ItemId);
+                cartItem.Quantity += updateQuantityDTO.Number == 1 ? 1 : -1;
+                await _dbContext.SaveChangesAsync();
+                return cartItem.Quantity;
+            }
         }
         public async Task<bool> DeleteCartItem(Guid id)
         {

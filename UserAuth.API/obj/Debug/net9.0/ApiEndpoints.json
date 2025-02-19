@@ -151,6 +151,32 @@
   },
   {
     "ContainingType": "UserAuth.API.Controllers.RestaurantController",
+    "Method": "AddRestaurantItem",
+    "RelativePath": "api/Restaurant/AddRestaurantItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantItem",
+        "Type": "UserAuth.Domain.DomainModels.RestaurantItem",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "UserAuth.Domain.DomainModels.RestaurantItem",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserAuth.API.Controllers.RestaurantController",
     "Method": "GetCategories",
     "RelativePath": "api/Restaurant/categories",
     "HttpMethod": "GET",
@@ -217,6 +243,32 @@
   },
   {
     "ContainingType": "UserAuth.API.Controllers.RestaurantController",
+    "Method": "DeleteRestaurantItem",
+    "RelativePath": "api/Restaurant/DeleteRestaurantItem/{restaurantItemId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantItemId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserAuth.API.Controllers.RestaurantController",
     "Method": "GetImages",
     "RelativePath": "api/Restaurant/getImages/{imageType}",
     "HttpMethod": "GET",
@@ -243,18 +295,58 @@
   },
   {
     "ContainingType": "UserAuth.API.Controllers.RestaurantController",
-    "Method": "GetRestaurantItems",
-    "RelativePath": "api/Restaurant/getItems/{id}",
+    "Method": "GetItems",
+    "RelativePath": "api/Restaurant/GetItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[UserAuth.Domain.DomainModels.Item, UserAuth.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserAuth.API.Controllers.RestaurantController",
+    "Method": "GetOrders",
+    "RelativePath": "api/Restaurant/GetOrders/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Guid",
+        "Name": "userId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[UserAuth.Domain.DTOs.OrderDTO, UserAuth.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserAuth.API.Controllers.RestaurantController",
+    "Method": "GetRestaurantItems",
+    "RelativePath": "api/Restaurant/GetRestaurantItems",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[UserAuth.Domain.DomainModels.RestaurantItem, UserAuth.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -269,21 +361,21 @@
   },
   {
     "ContainingType": "UserAuth.API.Controllers.RestaurantController",
-    "Method": "GetOrders",
-    "RelativePath": "api/Restaurant/GetOrders",
+    "Method": "GetRestaurantItemsById",
+    "RelativePath": "api/Restaurant/GetRestaurantItemsById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[UserAuth.Domain.DTOs.OrderDTO, UserAuth.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[UserAuth.Domain.DomainModels.RestaurantItem, UserAuth.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -14,6 +14,7 @@ namespace UserAuth.Infrastructure
         public DbSet<DbOrder> Orders { get; set; }
         public DbSet<DbOrderItem> OrderItems { get; set; }
         public DbSet<Image> Image { get; set; }
+        public DbSet<DbItem> Items { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {   

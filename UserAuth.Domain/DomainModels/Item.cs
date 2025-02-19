@@ -1,21 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace UserAuth.Domain.DomainModels
 {
-    public class RestaurantItem
+    public class Item
     {
         public Guid Id { get; set; }
-
         public string Name { get; set; } = null!;
-
         public string Details { get; set; } = null!;
-
         public decimal Price { get; set; }
-        public short? Quantity { get; set; } = 10;
-        public Guid RestaurantId { get; set; }
-        public string? RestaurantName { get; set; }
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public Guid ItemId { get; set; }
-
     }
 }

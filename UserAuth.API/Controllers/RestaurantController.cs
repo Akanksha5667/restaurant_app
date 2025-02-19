@@ -7,6 +7,7 @@ using UserAuth.Domain.DomainModels;
 using UserAuth.Domain.DTOs;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using UserAuth.Infrastructure.DBModels.Restaurant;
 
 namespace UserAuth.API.Controllers
 {
@@ -31,10 +32,21 @@ namespace UserAuth.API.Controllers
             return await _restaurantService.GetById(id);
         }
 
-        [HttpGet("getItems/{id}")]
-        public async Task<List<RestaurantItem>> GetRestaurantItems(Guid id)
+        [HttpGet("GetRestaurantItemsById/{id}")]
+        public async Task<List<RestaurantItem>> GetRestaurantItemsById(Guid id)
         {
             return await _restaurantService.GetDishesByRestaurant(id);
+        }
+        [HttpGet("GetRestaurantItems")]
+        public async Task<List<RestaurantItem>> GetRestaurantItems()
+        {
+            return await _restaurantService.GetDishesByRestaurant();
+        }
+        [HttpPost("AddRestaurantItem")]
+        public async Task<RestaurantItem> AddRestaurantItem(RestaurantItem restaurantItem)
+        {
+            RestaurantItem result = await _restaurantService.AddRestaurantItem(restaurantItem);
+            return result;
         }
 
         [HttpGet("GetRetaurantItemsOnSearch/{searchString}")]
@@ -47,6 +59,7 @@ namespace UserAuth.API.Controllers
         {
             return await _restaurantService.GetRetaurantsOnSearch(searchString);
         }
+
         [HttpGet("categories")]
         public async Task<List<Category>> GetCategories()
         {
@@ -88,6 +101,15 @@ namespace UserAuth.API.Controllers
             bool isDeleted = await _restaurantService.DeleteCart(userId);
             return isDeleted;
         }
+
+        [HttpDelete("DeleteRestaurantItem/{restaurantItemId}")]
+        public async Task<bool> DeleteRestaurantItem(Guid restaurantItemId)
+        {
+            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            bool isDeleted = await _restaurantService.DeleteRestaurantItem(userId, restaurantItemId);
+            return isDeleted;
+        }
+
         [HttpGet("GetRestaurantsCount")]
         public async Task<int> GetRestaurantsCount()
         {
@@ -101,6 +123,14 @@ namespace UserAuth.API.Controllers
         {
             List<OrderDTO> orders = await _restaurantService.GetOrders(userId);
             return orders;
+        }
+
+        [HttpGet("GetItems")]
+        public async Task<List<Item>> GetItems()
+        {
+            ClaimsPrincipal user = User;
+            int userid = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            return await _restaurantService.GetItems();
         }
         //[HttpGet("GetImageStoredProc/{id}")]
         //public async Task<ImageDTO> GetImageStoredProc(int id)

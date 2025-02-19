@@ -9,7 +9,7 @@ namespace UserAuth.Infrastructure.DBModels.Restaurant
     public class DbRestaurant
     {
         public Guid Id { get; set; }
-
+        public int AdminId { get; set; }
         public string Name { get; set; } = null!;
 
         public string Location { get; set; } = null!;

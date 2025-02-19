@@ -31,7 +31,7 @@ namespace UserAuth.Application.Services
         {
             return await _restaurantRepository.GetById(id);
         }
-        public async Task<List<RestaurantItem>> GetDishesByRestaurant(Guid id)
+        public async Task<List<RestaurantItem>> GetDishesByRestaurant(Guid id=default)
         {
             return await _restaurantRepository.GetDishesByRestaurant(id);
 
@@ -63,10 +63,10 @@ namespace UserAuth.Application.Services
             }
             imageDTO.Name = imageDTO.File.FileName;
             imageDTO.Type = imageDTO.File.ContentType;
+            imageDTO.ImageData = imageBytes;
             ImageDTO retriveImageDTO = await _restaurantRepository.UploadImage(imageDTO);
             //ImageDTO result =  await RetriveImage(retriveImageDTO);
-            retriveImageDTO.retriveImage = Convert.ToBase64String(retriveImageDTO.ImageData);
-            return retriveImageDTO;
+            return retriveImageDTO; 
         }
 
         public async Task<List<ImageDTO>> GetImages(string imageType)
@@ -77,7 +77,7 @@ namespace UserAuth.Application.Services
                 images=await _restaurantRepository.GetImagesStoredProc(imageType);
                 var cacheEntryOptions = new MemoryCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
                 };
                 _cache.Set(imageType, images, cacheEntryOptions);
             }
@@ -124,9 +124,25 @@ namespace UserAuth.Application.Services
             return isDeleted;
         }
 
+        public async Task<bool> DeleteRestaurantItem(int userId,Guid restaurantItemId)
+        {
+            bool isDeleted = await _restaurantRepository.DeleteRestaurantItem(userId, restaurantItemId);
+            return isDeleted;
+        }
+
         public async Task<List<OrderDTO>> GetOrders(int userId)
         {
            return await _restaurantRepository.GetOrders(userId);
+        }
+        public async Task<List<Item>> GetItems()
+        {
+            return await _restaurantRepository.GetItems();
+        }
+
+        public async Task<RestaurantItem> AddRestaurantItem(RestaurantItem restaurantItem)
+        {
+            RestaurantItem result = await _restaurantRepository.AddRestaurantItem(restaurantItem);
+            return result;
         }
         //public async Task<ImageDTO> GetImageStoredProc(int id)
         //{

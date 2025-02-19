@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "UserAuth.API\\UserAuth.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "UserAuth.Infrastructure\\UserAuth.Infrastructure.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "UserAuth.Application\\UserAuth.Application.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "UserAuth.Domain\\UserAuth.Domain.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

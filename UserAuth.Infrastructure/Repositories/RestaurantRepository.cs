@@ -1,5 +1,7 @@
 ﻿using System.Data;
+using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using UserAuth.Domain.DomainModels;
@@ -15,11 +17,14 @@ namespace UserAuth.Infrastructure.Repositories
         private readonly UsersDbContext _dbContext;
         private readonly IMapper _mapper;
         private readonly IConfiguration _config;
-        public RestaurantRepository(UsersDbContext dbContext, IMapper mapper, IConfiguration config)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public RestaurantRepository(UsersDbContext dbContext, IHttpContextAccessor httpContextAccessor,  IMapper mapper, IConfiguration config)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _config = config;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<List<Restaurant>> GetAll(PaginationParameters paginationParameters)
@@ -38,6 +43,12 @@ namespace UserAuth.Infrastructure.Repositories
 
         public async Task<List<RestaurantItem>> GetDishesByRestaurant(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                var user = _httpContextAccessor.HttpContext.User;
+                var userId = user.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
+                id = _dbContext.Restaurants.Where(res => res.AdminId == int.Parse(userId)).FirstOrDefault().Id;
+            }
             List<DbRestaurantItem> restaurantItems = _dbContext.RestaurantItems.Where(item => item.RestaurantId == id).ToList();
             return _mapper.Map<List<RestaurantItem>>(restaurantItems); ;
         }
@@ -136,6 +147,44 @@ namespace UserAuth.Infrastructure.Repositories
                 throw;
             }
         }
+        public async Task<bool> DeletePhoto(Guid restaurantId,Guid restaurantItemId)
+        {
+            try
+            {
+                Image image = await _dbContext.Image.Where(Item => Item.RestaurantItemId == restaurantItemId).FirstOrDefaultAsync();
+                if(image != null)
+                {
+                    _dbContext.Image.Remove(image);
+                    await _dbContext.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public async Task<bool> DeleteRestaurantItem(int userId,Guid restaurantItemId)
+        {
+            try
+            {
+                Guid restaurantId = await GetRestaurantIdOnUserId();
+                bool isPhotoDeleted = await DeletePhoto(restaurantId, restaurantItemId);
+                if (isPhotoDeleted || !isPhotoDeleted)
+                {
+                    DbRestaurantItem restaurantItem = await _dbContext.RestaurantItems.Where(Item => Item.RestaurantId == restaurantId && Item.Id == restaurantItemId).FirstOrDefaultAsync();
+                    _dbContext.RestaurantItems.Remove(restaurantItem);
+                    await _dbContext.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         public async Task<int> GetRestaurantsCount()
         {
@@ -174,6 +223,45 @@ namespace UserAuth.Infrastructure.Repositories
         {
             List<DbOrder> orders = await _dbContext.Orders.Where(order=>order.UserId==userId).ToListAsync();
             return _mapper.Map<List<OrderDTO>>(orders);
+        }
+
+        private async Task<Guid> GetRestaurantIdOnUserId()
+        {
+            var user = _httpContextAccessor.HttpContext.User;
+            var userId = user.Claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
+            DbRestaurant restaurant = await _dbContext.Restaurants.Where(res => res.AdminId == int.Parse(userId)).FirstOrDefaultAsync();
+            return restaurant.Id;
+        }
+        public async Task<List<Item>> GetItems()
+        {
+            Guid restaurantId = await GetRestaurantIdOnUserId();
+            var selectedItemIds = _dbContext.RestaurantItems.Where(res=> res.Id==restaurantId).Select(res=> res.ItemId).ToList();
+            var items = (from item in _dbContext.Items
+                         where !selectedItemIds.Contains(item.Id)
+                         select item).ToList();
+            return _mapper.Map<List<Item>>(items);
+        }
+        private async Task<DbRestaurantItem> IsItemExistsInRestaurant(RestaurantItem restaurantItem)
+        {
+            Guid restaurantId = await GetRestaurantIdOnUserId();
+            DbRestaurantItem dbRestaurantItem = await _dbContext.RestaurantItems.Where(res => res.Name == restaurantItem.Name && res.RestaurantId == restaurantId).FirstOrDefaultAsync();
+            return dbRestaurantItem;
+        }
+        
+        public async Task<RestaurantItem> AddRestaurantItem(RestaurantItem restaurantItem)
+        {
+            var dbRestaurantItem = await IsItemExistsInRestaurant(restaurantItem);
+            if (dbRestaurantItem == null)
+            {
+                Guid restaurantId = await GetRestaurantIdOnUserId();
+                restaurantItem.RestaurantId = restaurantId;
+                var item = _mapper.Map<DbRestaurantItem>(restaurantItem);
+                item.Restaurant = null;
+                var result = await _dbContext.RestaurantItems.AddAsync(item);
+                _dbContext.SaveChanges();
+                return _mapper.Map<RestaurantItem>(result.Entity);
+            }
+            return null;
         }
     }
 }

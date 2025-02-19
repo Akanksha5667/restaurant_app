@@ -11,3 +11,16 @@ C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Deb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.pdb
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\ref\UserAuth.Domain.dll
 C:\Users\Akanksha\Desktop\react app\backend\UserAuth.API\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.sourcelink.json
+D:\projects\restaurant-app\backend\UserAuth.Domain\bin\Debug\net9.0\UserAuth.Domain.deps.json
+D:\projects\restaurant-app\backend\UserAuth.Domain\bin\Debug\net9.0\UserAuth.Domain.dll
+D:\projects\restaurant-app\backend\UserAuth.Domain\bin\Debug\net9.0\UserAuth.Domain.pdb
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.csproj.AssemblyReference.cache
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.AssemblyInfoInputs.cache
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.AssemblyInfo.cs
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.csproj.CoreCompileInputs.cache
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.sourcelink.json
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.dll
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\refint\UserAuth.Domain.dll
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\UserAuth.Domain.pdb
+D:\projects\restaurant-app\backend\UserAuth.Domain\obj\Debug\net9.0\ref\UserAuth.Domain.dll

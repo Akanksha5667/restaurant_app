@@ -20,9 +20,10 @@ namespace UserAuth.Infrastructure.DBModels.Restaurant
 
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
-
+        public Guid ItemId { get; set; }
+        public short Quantity { get; set; }
+        public virtual DbItem Item { get; set; } = null!;
         public virtual DbRestaurant Restaurant { get; set; } = null!;
-
         public virtual DbCategory Category { get; set; } = null!;
     }
 
