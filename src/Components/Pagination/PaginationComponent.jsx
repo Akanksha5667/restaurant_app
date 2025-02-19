@@ -36,7 +36,7 @@ const PaginationComponent = () => {
     setImages(images);
     }else{
     setImages(images_indexedDB[0].images);
-    console.log(images_indexedDB[1].string)
+    // console.log(images_indexedDB[1].string)
     }
   };
 

@@ -3,7 +3,7 @@ import {
   AddItemToCart,
   DeleteCartItem,
   GetImages,
-  GetRestaurantItems,
+  GetRestaurantItemsById,
   UploadPhoto,
 } from "../../ApiService";
 import { useParams } from "react-router";
@@ -14,7 +14,6 @@ import {
   GetCategoryItems,
   GetRetaurantItemsOnSearch,
 } from "../../ApiService";
-import {} from "../../ApiService";
 import { useData } from "../../Auth/DataContext";
 
 export default function OrderOnline() {
@@ -28,13 +27,13 @@ export default function OrderOnline() {
   // const [quantity,setQuantity]=useState();
   const { id } = useParams();
   const fileRef = useRef(null);
-  const {setCartItemsCount} =useData();
+  const { setCartItemsCount } = useData();
   const getRestaurantItems = async () => {
     let items;
     if (currentUrl.includes("category")) {
       items = await GetCategoryItems(id);
     } else if (currentUrl.includes("restaurant")) {
-      items = await GetRestaurantItems(id);
+      items = await GetRestaurantItemsById(id);
     } else {
       items = await GetRetaurantItemsOnSearch(name);
     }
@@ -56,7 +55,7 @@ export default function OrderOnline() {
     const payload = jwtDecode(jwt);
     setUserId(
       payload[
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
       ]
     );
   };
@@ -87,8 +86,7 @@ export default function OrderOnline() {
     };
     const isAdded = await AddItemToCart(cartItem);
     if (isAdded) {
-     fetchCartItems();
-
+      fetchCartItems();
     }
   };
 
@@ -99,6 +97,7 @@ export default function OrderOnline() {
       const updateQuantityDTO = {
         cartItemId: cartItemId,
         number: number,
+        isRestaurantItem: false
       };
       await UpdateQuantity(updateQuantityDTO);
     }
@@ -107,7 +106,7 @@ export default function OrderOnline() {
   };
   return (
     <div>
-      <div className={currentUrl.includes("restaurant")?"restaurant-items":"height-700"}>
+      <div className={currentUrl.includes("restaurant") ? "restaurant-items" : "height-700"}>
         {restaurantItems?.map((item, index) => {
           const matchingImage = images?.find(
             (image) => image.restaurantItemId === item.id
@@ -190,7 +189,7 @@ export default function OrderOnline() {
                 </h3>
                 <p><b>
                   {item.restaurantName}
-                  </b></p>
+                </b></p>
                 <p>
                   <span className="rupee-sign">
                     <i class="fas fa-rupee-sign"></i>

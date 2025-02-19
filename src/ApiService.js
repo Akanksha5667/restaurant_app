@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const API_URL = process.env.REACT_APP_API_URL;
+const token = localStorage.getItem("token");
 
 export const Register = async (data) => {
   const response = await axios.post(`${API_URL}user/register`, data, {
@@ -53,7 +54,7 @@ export const IsTokenValid = async (token) => {
 };
 
 export const GetRestaurants = async (paginationParameters) => {
-  const response = await axios.post(`${API_URL}restaurant`,paginationParameters, {
+  const response = await axios.post(`${API_URL}restaurant`, paginationParameters, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -70,10 +71,21 @@ export const GetRestaurantById = async (id) => {
   return response.data;
 };
 
-export const GetRestaurantItems = async (id) => {
-  const response = await axios.get(`${API_URL}restaurant/getItems/${id}`, {
+export const GetRestaurantItemsById = async (id) => {
+  const response = await axios.get(`${API_URL}restaurant/GetRestaurantItemsById/${id}`, {
     headers: {
       "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return response.data;
+};
+
+export const GetRestaurantItems = async (id) => {
+  const response = await axios.get(`${API_URL}restaurant/GetRestaurantItems`, {
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   return response.data;
@@ -83,6 +95,15 @@ export const AddItemToCart = async (data) => {
   const response = await axios.post(`${API_URL}cart`, data, {
     headers: {
       "content-type": "application/json",
+    },
+  });
+  return response.data;
+};
+export const AddRestaurantItem = async (data) => {
+  const response = await axios.post(`${API_URL}restaurant/AddRestaurantItem`, data, {
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   return response.data;
@@ -115,6 +136,7 @@ export const DeleteCartItem = async (id) => {
   return response.data;
 };
 
+
 export const GetRetaurantItemsOnSearch = async (searchItem) => {
   const response = await axios.get(`${API_URL}restaurant/GetRetaurantItemsOnSearch/${searchItem}`, {
     headers: {
@@ -143,6 +165,15 @@ export const GetCategories = async () => {
   return response.data;
 };
 
+export const DeleteRestaurantItem = async (restaurantItemId) => {
+  const response = await axios.delete(`${API_URL}restaurant/DeleteRestaurantItem/${restaurantItemId}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  })
+  return response.data;
+}
 export const GetCategoryItems = async (id) => {
   const response = await axios.get(`${API_URL}restaurant/categoryItems/${id}`, {
     headers: {
@@ -152,13 +183,13 @@ export const GetCategoryItems = async (id) => {
   return response.data;
 };
 
-export const  UploadPhoto = async (formData) => {
-const response = await axios.post(`${API_URL}restaurant/upload`, formData, {
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
-return response.data;
+export const UploadPhoto = async (formData) => {
+  const response = await axios.post(`${API_URL}restaurant/upload`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
 };
 
 export const GetImages = async (ImageType) => {
@@ -170,7 +201,7 @@ export const GetImages = async (ImageType) => {
   return response.data;
 };
 
-export const  Order = async (orderStatus) => {
+export const Order = async (orderStatus) => {
   const token = localStorage.getItem("token");
   const response = await axios.post(`${API_URL}restaurant/PlaceOrder`, orderStatus, {
     headers: {
@@ -179,22 +210,32 @@ export const  Order = async (orderStatus) => {
     },
   });
   return response.data;
-  };
+};
 
-  export const GetRestaurantsCount = async () => {
-    const response = await axios.get(`${API_URL}restaurant/GetRestaurantsCount`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    return response.data;
-  };
+export const GetRestaurantsCount = async () => {
+  const response = await axios.get(`${API_URL}restaurant/GetRestaurantsCount`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response.data;
+};
 
-  export const GetOrders=async(userId)=>{
-    const response = await axios.get(`${API_URL}restaurant/GetOrders/${userId}`,{
-      headers:{
-        "content-type":"application/json",
-      }
-    })
-    return response.data;
-  };
+export const GetOrders = async (userId) => {
+  const response = await axios.get(`${API_URL}restaurant/GetOrders/${userId}`, {
+    headers: {
+      "content-type": "application/json",
+    }
+  })
+  return response.data;
+};
+
+export const GetItems = async () => {
+  const response = await axios.get(`${API_URL}restaurant/GetItems`, {
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  })
+  return response.data;
+};

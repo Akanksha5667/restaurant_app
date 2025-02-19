@@ -8,35 +8,37 @@ import { useData } from "../../Auth/DataContext";
 export default function Login() {
   const [header] = useState("Login");
   const { login } = useData();
+  let [selectedValue, setSelectedValue] = useState("user");
 
-  const [loginData, setLoginData] = useState({
-    email: "sanjana@gmail.com",
-    password: "sanjana@123",
-  });
 
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
-
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
     return emailRegex.test(email);
   };
 
+  const [loginData, setLoginData] = useState({
+    email: "sanjana@gmail.com",
+    password: "sanjana@123",
+    type: "user"
+  });
   const validatePassword = (password) => {
     const passwordRegex = /^[a-zA-Z0-9][^\s]{6,}$/;
     return passwordRegex.test(password);
   };
-
   function handleChange(e) {
     e.preventDefault();
     const { name, value } = e.target;
+    if (e.target.name === "type") {
+      setSelectedValue(e.target.value)
+    }
     setLoginData((prev) => ({
       ...prev,
       [name]: value,
     }));
-
     if (name === "email") {
       setErrors((prev) => ({
         ...prev,
@@ -71,6 +73,7 @@ export default function Login() {
     //})
     if (loginResponse.user != null) {
       localStorage.setItem("token", loginResponse.token);
+      localStorage.setItem("user-type", loginResponse.user.type);
       toast.success("Login successful.");
       setTimeout(() => {
         login();
@@ -117,12 +120,53 @@ export default function Login() {
                   type="password"
                   placeholder="Password"
                   name="password"
-                  value={loginData.password}
+                  value="user"
                   onChange={handleChange}
                 />
                 {errors.password && <p className="error">{errors.password}</p>}
               </div>
               <br />
+              <div className="flex">
+                <div className="flex">
+                  <input className="radio-btn"
+                    type="radio"
+                    id="user"
+                    name="type"
+                    value="user"
+                    checked={
+                      selectedValue ===
+                      "user"
+                    }
+                    onChange={handleChange}
+                  // onChange={() =>
+                  //   handleRadioChange(
+                  //     "user"
+                  //   )
+                  // }
+                  />
+                  <label
+                  >
+                    User
+                  </label>
+                </div>
+                <div className="flex">
+                  <input className="radio-btn"
+                    type="radio"
+                    id="admin"
+                    value="admin"
+                    name="type"
+                    checked={
+                      selectedValue ===
+                      "admin"
+                    }
+                    onChange={handleChange}
+                  />
+                  <label
+                  >
+                    Admin
+                  </label>
+                </div>
+              </div><br />
               <button
                 onClick={(e) => handleSubmit(e)}
                 disabled={
